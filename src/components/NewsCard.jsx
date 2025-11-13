@@ -2,9 +2,10 @@ import React from "react";
 import { CiShare2 } from "react-icons/ci";
 import { FaEye, FaStar } from "react-icons/fa";
 import { FaRegBookmark } from "react-icons/fa6";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
-  const { title, rating, total_view, author, thumbnail_url, details } = news;
+  const {id, title, rating, total_view, author, thumbnail_url, details } = news;
 
   return (
     <div className="card bg-base-100 shadow-xl border border-gray-200 hover:shadow-2xl transition-all duration-300">
@@ -42,7 +43,8 @@ const NewsCard = ({ news }) => {
         <h2 className="card-title text-lg font-bold text-gray-800">{title}</h2>
         <p className="text-gray-600 text-sm  border-b border-gray-300 pb-4">
           {details.slice(0, 180)}...
-          <span className="text-blue-500 cursor-pointer"> Read More</span>
+          <Link to={`/news-details/${id}`}
+           className="text-blue-500 cursor-pointer"> Read More</Link>
         </p>
 
         {/* Rating and Views */}
